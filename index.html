@@ -8,20 +8,25 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-    <div class="scores"><a href="highscore.html">View Highscores</a></div>
+    <div class="scores"><a href="highscores.html">View Highscores</a></div>
 
     <aside class="timer">Time: <span id="time">0</span></aside>
 
     <section class="wrapper">
             <div id="begin" class="start">
-                <img src="assets/images/supercar.png width="400" height="200/">
+                <img id="cars"src="./assets/images/supercar.png">
+        
                 <h1></h1>
-                <p>SO you think your fast? Test out if you can get the highest score! Remember, get anything wrong and the quiz will penalize your time by 10 seconds. Speed Racer, GET SET, SET READY GO!</p>
+                <p>SO.. You think you're fast?
+                   Test out if you can get the highest score! 
+                   Remember, get anything wrong and the quiz will penalize your time by 10 seconds. 
+                   Speed Racer, GET SET, SET READY.. GO!</p>
+                   <img id="cars"src="./assets/images/supercar.png">
                 <button id="start">Begin</button>
             </div>
 
         <section id="questions" class="hide">
-            <h2 id="q-title"></h2>
+            <h2 id="qTitle"></h2>
             <!-- <img> -->
             <!-- want to randomize the picture of each question, look through activity 5-8 in unit 4 -->
             <div id="choices" class="choices"></div>

@@ -1,31 +1,35 @@
 // variables to keep track of time 
 var questionsIndex = 0;
 // needs to start at o so the timer starts at o instead of 1 
-var time = questions.length * 15;
+
 // allows you to track the time played and keep score of the quiz at play 
 var timerId; 
 
 // variables to control the Dom 
-var questionsE1 = document.getElementById("quentions");
+var questionsEl = document.getElementById("questions");
 
-vartimerEl = document.getElementById("time");
+var timerEl = document.getElementById("time");
 
 var choicesEl = document.getElementById("choices");
 
-varsibmitBtn = document.getElementById("submit");
+var qTitle = document.getElementById("qTitle");
+
+var submitBtn = document.getElementById("submit");
 
 var startBtn = document.getElementById("start");
 
 var initialsEl = document.getElementById("initals");
 
-var feedbackEl = document.getElementById("feedback")
+var feedbackEl = document.getElementById("feedback");
+
+var finalScreen = document.getElementById("final-screen");
 
 // var imgEl = document.getElementById(".img");
 
 // questions asked during the quiz 
 var questions =[
 {
-    title: "Which years was the Porsche 959 supercar available for sale",
+    title: "Which years was the Porsche 959 supercar available for sale?",
     choices:[ "1985-1992", "1986-1989", "1987-1988", "1985-1990"],
     answer: "1986-1989"
     
@@ -62,15 +66,21 @@ var questions =[
 
 ];
 
+var time = questions.length*15;
+
 //start quiz function 
-function beginQuiz () {
+function beginQuiz (event) {
+
+    console.log ("the button was a sucess")
     //hide the start screen during the quiz 
- var startquizEl = document.getElementById("startquiz");
- startScreenEl.setAttribute("class","hide");
+ var startquizEl = document.getElementById("begin");
+ startquizEl.setAttribute("class","hide");
 
  // make questions appear on the screen to being quiz 
- questionsEl.removeattribute("class");
+ questionsEl.removeAttribute("class");
   // start the timer 
+  timerId=setInterval(clockCountDown, 1000);
+  timerEl.textContent=time
   // show starting time on the page
   getQuestions();
 
@@ -82,11 +92,19 @@ function beginQuiz () {
 var currentQuestions = questions[questionsIndex];
 
 // update code question title with current code 
-
-// clear old question choices 
+qTitle.textContent= currentQuestions.title;
+// clear old question choices
+choicesEl.innerHTML=""
 
 // loop over the choices by using forEach
+currentQuestions.choices.forEach(function(choice){
+    var BtnElement= document.createElement("button")
+    BtnElement.setAttribute("value", choice) 
+    BtnElement.textContent=choice
+    BtnElement.addEventListener("click",clickQuestions)
+    choicesEl.append(BtnElement)
 
+})
 // attach click event to listener 
 
 // display the choice on the page 
@@ -96,17 +114,37 @@ var currentQuestions = questions[questionsIndex];
 // question button clicks
 function clickQuestions () {
 // error handling needed for incorrect answer to question 
+//console.log("from page: ", this.value)
+//console.log('From array: ', questions[questionsIndex].answer)
+if(this.value !== questions[questionsIndex].answer){
+    //console.log("wrong")
+    // And add the time deduction 
+    time -= 5
+    // display the new time once the time is deducted 
+    timerEl.textContent=time
+    // flash the wrong/right feedback on the page under the questions 
+    feedbackEl.textContent="wrong"
 
-// And add the time deduction 
-
-// display the new time once the time is deducted 
-
-// flash the wrong/right feedback on the page under the questions 
+}
+else {
+    //console.log("correct")
+    // flash the wrong/right feedback on the page under the questions 
+    feedbackEl.textContent="correct"
+}
 
 // move to the next question 
+questionsIndex++
 
 // check if we've finished asking all the questions
+if(questionsIndex===questions.length) {
+    endtheQuiz()
 }
+else{
+    getQuestions()
+}
+}
+
+
 
 // End the quiz 
 function endtheQuiz(){
@@ -114,9 +152,14 @@ function endtheQuiz(){
 clearInterval(timerId);
 
 // show final screen 
-// show final score 
+
+finalScreen.removeAttribute("class");
+
 // hide questions 
+questionsEl.setAttribute("class","hide");
 }
+
+
 
 // timer function 
 function clockCountDown () {
@@ -143,9 +186,9 @@ function enterBtnEvent (){
 
 }
 
-// user clicks button to submit their initials
-submitBtn.onclick = saveHighScores;
-// user clicks to begin the quiz
-startBtn.onclick = beginQuiz;
+// // user clicks button to submit their initials
+submitBtn.onclick = saveHighscores();
+// // user clicks to begin the quiz
+startBtn.addEventListener("click", beginQuiz);
 // this checks if the user hit enter for their initials
-initialsEl.onkeyup = enterBtnEvent;
+// initialsEl.onkeyup = enterBtnEvent;

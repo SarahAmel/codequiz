@@ -1,6 +1,6 @@
 * {
-    background-color: #f585ee;
-    color: #dc23ca;
+    background-color: #f585e1;
+    color: #dc23ae;
 }
 
 body {
@@ -9,7 +9,7 @@ body {
   }
   
   a {
-    color: #e75f40;
+    color: #dc22ad;
     text-decoration: none;
     transition: color 0.1s;
   }
@@ -92,3 +92,7 @@ body {
     right: 10px;
   }
   
+  #cars {
+   width: 365px;
+     margin: 20px;
+  }
