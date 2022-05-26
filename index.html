@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0 to 60</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+    <div class="scores"><a href="highscore.html">View Highscores</a></div>
+
+    <aside class="timer">Time: <span id="time">0</span></aside>
+
+    <section class="wrapper">
+            <div id="begin" class="start">
+                <img src="assets/images/supercar.png width="400" height="200/">
+                <h1></h1>
+                <p>SO you think your fast? Test out if you can get the highest score! Remember, get anything wrong and the quiz will penalize your time by 10 seconds. Speed Racer, GET SET, SET READY GO!</p>
+                <button id="start">Begin</button>
+            </div>
+
+        <section id="questions" class="hide">
+            <h2 id="q-title"></h2>
+            <!-- <img> -->
+            <!-- want to randomize the picture of each question, look through activity 5-8 in unit 4 -->
+            <div id="choices" class="choices"></div>
+        </section>
+
+        <section id="final-screen" class="hide">
+            <h2>Completed!</h2>
+            <p>Your final score is <span id="final-score"></span></p>
+
+            <p>Enter Your Initials: <input type="text" id="initials" max="2" />
+            <button id="submit">Submit Score</button></p>
+        </section>
+
+        <aside id="feedback" class="feedback hide"></aside>
+    </section>
+
+    <script src="./assets/js/logic.js"></script>
+
+</body>
+</html>
