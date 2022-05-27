@@ -177,8 +177,8 @@ function saveHighscores() {
   var initials = initialsEl.value;
   // make sure the user wrote their initials in the box
   if (!initials) {
-    alert(
-      "Hey you what are you doing speed racer enter your initals! be sure to just use two letter please."
+   alert(
+      "Hay Speed Racer hold your horses!Enter your initals. Thank you Speed Racer! Think you can do better? Then it's time you to get back in the saddle and try again after you submit. Good luck Spped Racer!"
     );
 
     return;
