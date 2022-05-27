@@ -5,7 +5,7 @@
 
 body {
     font-family: Arial;
-    font-size: 20px
+    font-size: 25px
   }
   
   a {
@@ -55,7 +55,7 @@ body {
   }
   
   li:nth-child(odd) {
-    background-color: #8849e6;
+    background-color: #cc49e6;
   }
   
   .wrapper {
@@ -93,6 +93,15 @@ body {
   }
   
   #cars {
-   width: 365px;
-     margin: 20px;
+   width: 400px;
+     /* margin: 20px; */
+  }
+  #wings{
+      width: 500px;
+      /* margin:20px; */
+  }
+
+  #qimg{
+      width:350px;
+      margin: 50px;
   }
