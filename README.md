@@ -18,7 +18,7 @@ This app runs in the browser and lineaments dynamically updated HTML and designe
 
 The user will be able to take a quiz to test their knowledge about super cars.
 
-A time deduction is in place is a question is answered wrong.
+A time deduction is in place if a question is answered wrong.
 
 The user can save, view, or delete their high scores. 
 # Navigation
